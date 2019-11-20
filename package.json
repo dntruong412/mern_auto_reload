@@ -4,7 +4,9 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "start": "nodemon server.js"
+        "db:start": "docker-compose down --remove-orphans && docker-compose up",
+        "server:start": "nodemon server.js",
+        "test:db": "nodemon test_db.js"
     },
     "keywords": [],
     "author": "",
@@ -16,6 +18,7 @@
         ],
         "watch": [
             "server.js",
+            "test_db.js",
             "src"
         ],
         "verbose": true,
@@ -24,7 +27,10 @@
     "dependencies": {
         "body-parser": "^1.19.0",
         "express": "^4.17.1",
-        "morgan": "^1.9.1"
+        "mongodb": "^3.3.4",
+        "mongoose": "^5.7.12",
+        "morgan": "^1.9.1",
+        "uuid": "^3.3.3"
     },
     "devDependencies": {
         "nodemon": "^1.19.4",

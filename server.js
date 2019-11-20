@@ -4,7 +4,7 @@ var path = require('path')
 var reload = require('reload')
 var bodyParser = require('body-parser')
 var logger = require('morgan')
-
+var testApp = require('./src/test');
 var app = express()
 
 var publicDir = path.join(__dirname, 'public')
@@ -14,6 +14,7 @@ app.use(logger('dev'))
 app.use(bodyParser.json()) // Parses json, multi-part (file), url-encoded
 
 app.get('/', function(req, res) {
+    testApp.add();
     res.sendFile(path.join(publicDir, 'index.html'))
 })
 
